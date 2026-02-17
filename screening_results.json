@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Vũ Nam Khánh",
+    "email": "nslgkhanh.vu@gmail.com",
+    "phone": "0383356237",
+    "position": "AI Intern",
+    "timestamp": "2026-02-15 09:04:15",
+    "cv_filename": "Portfolio of Vu Nam Khanh (2).pdf",
+    "cv_path": "cv_uploads\\20260215_090415_Vũ Nam Khánh_Portfolio of Vu Nam Khanh (2).pdf",
+    "total_score": 44.5,
+    "max_score": 100,
+    "percentage": 44.5,
+    "recommendation": "REJECT",
+    "status": "❌ Not Recommended",
+    "action": "Send rejection email",
+    "breakdown": {
+      "required_skills": {
+        "found": [
+          "python",
+          "c++",
+          "pandas",
+          "matplotlib",
+          "numpy"
+        ],
+        "percentage": 38.46153846153847,
+        "points": 11.53846153846154
+      },
+      "preferred_skills": {
+        "found": [
+          "pytorch",
+          "tensorflow",
+          "scikit-learn",
+          "fastapi"
+        ],
+        "percentage": 40.0,
+        "points": 8.0
+      },
+      "experience": {
+        "years_found": 0,
+        "years_required": 0,
+        "points": 20
+      },
+      "education": {
+        "relevant": false,
+        "points": 5
+      },
+      "certifications": {
+        "found": [],
+        "points": 0
+      }
+    },
+    "min_score": 60
+  }
+]

@@ -1,0 +1,30 @@
+#requirements.txt
+
+# LLM (Local)
+langchain-ollama>=0.1.0
+langchain>=0.2.0
+langchain-core>=0.2.20
+langgraph>=0.1.0
+
+# Vector Database ONLY
+chromadb==0.4.22
+sentence-transformers==2.2.2
+torch>=2.0.0
+
+# Document Processing
+pypdf==4.0.1
+python-docx==1.1.0
+pymupdf==1.23.8
+
+# Text Processing
+spacy==3.7.2
+
+# Web UI
+streamlit==1.31.0
+plotly==5.18.0
+
+# Utilities
+python-dotenv==1.0.0
+pydantic==2.5.3
+requests
+
