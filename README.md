@@ -75,8 +75,8 @@ Quản lý yêu cầu tuyển dụng
 ### Bước 1: Clone Project
 
 ```bash
-git clone https://github.com/your-org/hr-ai-agent.git
-cd hr-ai-agent
+git clone https://github.com/your-org/hr-ai-agent-pure-vector.git
+cd hr-ai-agent-pure-vector
 ```
 
 ### Bước 2: Virtual Environment
