@@ -2,7 +2,7 @@
 
 **Hệ thống tuyển dụng thông minh với AI chatbot, CV screening tự động, và quản lý job requirements**
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.32-red.svg)](https://streamlit.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -75,8 +75,8 @@ Quản lý yêu cầu tuyển dụng
 ### Bước 1: Clone Project
 
 ```bash
-git clone https://github.com/your-org/hr-ai-agent.git
-cd hr-ai-agent
+git clone https://github.com/your-org/hr-ai-agent-pure-vector.git
+cd hr-ai-agent-pure-vector
 ```
 
 ### Bước 2: Virtual Environment
@@ -478,7 +478,7 @@ python rebuild_knowledge_base.py
 
 ```bash
 # Fork & clone
-git clone https://github.com/your-username/hr-ai-agent.git
+git clone https://github.com/your-username/hr-ai-agent-pure-vector.git
 
 # Create branch
 git checkout -b feature/your-feature
@@ -518,7 +518,7 @@ MIT License - See [LICENSE](LICENSE) file
 
 **Support:**
 - Email: hr@paraline.com.vn
-- GitHub Issues: [Report Bug](https://github.com/your-org/hr-ai-agent/issues)
+- GitHub Issues: [Report Bug](https://github.com/your-org/hr-ai-agent-pure-vector/issues)
 
 ---
 
@@ -585,4 +585,4 @@ python cv_screening.py
 
 **⭐ Star this repo if you find it useful!**
 
-**🐛 Found a bug? [Report it](https://github.com/your-org/hr-ai-agent/issues)**
+**🐛 Found a bug? [Report it](https://github.com/your-org/hr-ai-agent-pure-vector/issues)**
