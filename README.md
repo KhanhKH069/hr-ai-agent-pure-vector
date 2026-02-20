@@ -886,7 +886,6 @@ MIT License - See LICENSE file for details
 
 ### Contact
 - **Email:** hr@paraline.com.vn
-- **GitHub Issues:** https://github.com/your-org/hr-ai-agent/issues
 
 ---
 
