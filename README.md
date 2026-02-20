@@ -478,7 +478,7 @@ python rebuild_knowledge_base.py
 
 ```bash
 # Fork & clone
-git clone https://github.com/your-username/hr-ai-agent.git
+git clone https://github.com/your-username/hr-ai-agent-pure-vector.git
 
 # Create branch
 git checkout -b feature/your-feature
