@@ -585,4 +585,8 @@ python cv_screening.py
 
 **⭐ Star this repo if you find it useful!**
 
+<<<<<<< HEAD
 **🐛 Found a bug? [Report it](https://github.com/your-org/hr-ai-agent-pure-vector/issues)**
+=======
+**🐛 Found a bug? [Report it](https://github.com/your-org/hr-ai-agent/issues)**
+>>>>>>> b7ada183f4e12dbd4a971bcaefe8875979929cfb
