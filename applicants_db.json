@@ -7,5 +7,41 @@
     "timestamp": "2026-02-15 09:04:15",
     "cv_filename": "Portfolio of Vu Nam Khanh (2).pdf",
     "cv_path": "cv_uploads\\20260215_090415_Vũ Nam Khánh_Portfolio of Vu Nam Khanh (2).pdf"
+  },
+  {
+    "name": "Đoàn Đức Thắng",
+    "email": "ducthang8558@gmail.com",
+    "phone": "0978 851 058",
+    "position": "AI Intern",
+    "timestamp": "2026-02-17 22:13:31",
+    "cv_filename": "Doan Duc Thang_AI Engineer.pdf",
+    "cv_path": "cv_uploads\\20260217_221331_Đoàn Đức Thắng_Doan Duc Thang_AI Engineer.pdf"
+  },
+  {
+    "name": "Nguyễn Văn Lâm Hùng",
+    "email": "lamhung13102005@gmail.com",
+    "phone": "0379181310",
+    "position": "AI Intern",
+    "timestamp": "2026-02-17 22:52:14",
+    "cv_filename": "CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "cv_path": "cv_uploads\\20260217_225214_Nguyễn Văn Lâm Hùng_CV Nguyễn Văn Lâm Hùng AI intern.pdf"
+  },
+  {
+    "name": "Vũ Nam Khánh",
+    "email": "nslgkhanh.vu@gmail.com",
+    "phone": "0383356237",
+    "position": "AI Engineer",
+    "timestamp": "2026-02-20 13:15:06",
+    "cv_filename": "Portfolio of Vu Nam Khanh (2).pdf",
+    "cv_path": "cv_uploads\\20260220_131506_Vũ Nam Khánh_Portfolio of Vu Nam Khanh (2).pdf"
+  },
+  {
+    "name": "Nguyễn Văn Lâm Hùng",
+    "email": "lamhung13102005@gmail.com",
+    "phone": "0379181310",
+    "position": "AI Intern",
+    "timestamp": "2026-02-20 13:19:24",
+    "cv_filename": "CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "cv_path": "cv_uploads\\20260220_131924_Nguyễn Văn Lâm Hùng_CV Nguyễn Văn Lâm Hùng AI intern.pdf"
   }
 ]

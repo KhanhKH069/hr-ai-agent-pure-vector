@@ -1,135 +1,153 @@
 """
-Pure Vector Database - NO SQL!
-Everything stored in ChromaDB collections
+Vector Database Service - LangChain v1.x Compatible
+Simple ChromaDB wrapper for HR knowledge base
 """
 
 import chromadb
 from chromadb.config import Settings
-from sentence_transformers import SentenceTransformer
-import os
-from datetime import datetime
+from pathlib import Path
 from typing import List, Dict, Optional
-import logging
 
-logger = logging.getLogger(__name__)
-
-class VectorDatabase:
-    """Pure ChromaDB storage - NO SQL anywhere!"""
+class VectorDB:
+    """Simple ChromaDB wrapper for vector storage and retrieval"""
     
     def __init__(self, persist_directory: str = "./chroma_db"):
-        logger.info("🚀 Initializing PURE Vector Database (NO SQL)")
+        """Initialize ChromaDB client"""
+        self.persist_directory = persist_directory
+        Path(persist_directory).mkdir(parents=True, exist_ok=True)
         
-        # ChromaDB client with telemetry DISABLED
+        # Initialize ChromaDB client
         self.client = chromadb.PersistentClient(
             path=persist_directory,
             settings=Settings(
-                anonymized_telemetry=False,  # ✅ FIXED: Disable telemetry warnings
+                anonymized_telemetry=False,
                 allow_reset=True
             )
         )
-        
-        # Local embeddings
-        model_name = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
-        self.embedder = SentenceTransformer(model_name)
-        logger.info(f"📊 Embedding model: {model_name}")
-        
-        # Collections (instead of SQL tables!)
-        self.collections = {}
-        self._init_collections()
-        
-        logger.info(f"✅ Vector DB ready with {len(self.collections)} collections (NO SQL!)")
     
-    def _init_collections(self):
-        """Initialize all collections"""
-        collection_names = [
-            'interview_questions',
-            'hr_policies',
-            'onboarding_procedures',
-            'candidate_results',
-            'audit_logs'
-        ]
-        
-        for name in collection_names:
+    def create_collection(self, collection_name: str, reset: bool = False):
+        """Create or get a collection"""
+        if reset:
             try:
-                self.collections[name] = self.client.get_collection(name)
-                logger.info(f"  ✅ Loaded collection: {name}")
+                self.client.delete_collection(collection_name)
             except:
-                self.collections[name] = self.client.create_collection(
-                    name=name,
-                    metadata={"description": f"Collection for {name}"}
-                )
-                logger.info(f"  🆕 Created collection: {name}")
+                pass
+        
+        return self.client.get_or_create_collection(
+            name=collection_name,
+            metadata={"hnsw:space": "cosine"}
+        )
     
-    def add(self, collection_name: str, documents: List[str], 
-            metadatas: List[Dict], ids: Optional[List[str]] = None):
+    def add_documents(
+        self,
+        collection_name: str,
+        documents: List[str],
+        metadatas: List[Dict],
+        ids: Optional[List[str]] = None
+    ):
         """Add documents to collection"""
+        collection = self.create_collection(collection_name)
         
-        if collection_name not in self.collections:
-            raise ValueError(f"Collection {collection_name} not found")
-        
-        collection = self.collections[collection_name]
-        
-        # Generate embeddings
-        embeddings = self.embedder.encode(documents).tolist()
-        
-        # Auto-generate IDs if needed
+        # Generate IDs if not provided
         if ids is None:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            ids = [f"{collection_name}_{timestamp}_{i}" for i in range(len(documents))]
+            ids = [f"doc_{i}" for i in range(len(documents))]
         
-        # Add to ChromaDB
         collection.add(
             documents=documents,
-            embeddings=embeddings,
             metadatas=metadatas,
             ids=ids
         )
         
-        logger.info(f"✅ Added {len(documents)} docs to {collection_name}")
-        return ids
+        return len(documents)
     
-    def query(self, collection_name: str, query_text: str, 
-             n_results: int = 10, where: Optional[Dict] = None):
-        """Vector similarity search"""
-        
-        collection = self.collections[collection_name]
-        
-        # Generate query embedding
-        query_embedding = self.embedder.encode([query_text]).tolist()
-        
-        # Search
-        results = collection.query(
-            query_embeddings=query_embedding,
-            n_results=n_results,
-            where=where
-        )
-        
-        return results
+    def query(
+        self,
+        collection_name: str,
+        query_text: str,
+        n_results: int = 3
+    ) -> Dict:
+        """Query the collection"""
+        try:
+            collection = self.client.get_collection(collection_name)
+            
+            results = collection.query(
+                query_texts=[query_text],
+                n_results=n_results
+            )
+            
+            return results
+            
+        except Exception as e:
+            print(f"Query error: {e}")
+            return {
+                'documents': [[]],
+                'metadatas': [[]],
+                'distances': [[]]
+            }
     
-    def get(self, collection_name: str, where: Optional[Dict] = None, 
-            ids: Optional[List[str]] = None, limit: Optional[int] = None):
-        """Get documents by filter or ID"""
-        
-        collection = self.collections[collection_name]
-        return collection.get(where=where, ids=ids, limit=limit)
+    def get_collection_count(self, collection_name: str) -> int:
+        """Get number of documents in collection"""
+        try:
+            collection = self.client.get_collection(collection_name)
+            return collection.count()
+        except:
+            return 0
     
-    def delete(self, collection_name: str, ids: List[str]):
-        """Delete documents"""
-        collection = self.collections[collection_name]
-        collection.delete(ids=ids)
-        logger.info(f"🗑️  Deleted {len(ids)} docs from {collection_name}")
+    def list_collections(self) -> List[str]:
+        """List all collections"""
+        collections = self.client.list_collections()
+        return [c.name for c in collections]
     
-    def count(self, collection_name: str) -> int:
-        """Count documents"""
-        return self.collections[collection_name].count()
+    def delete_collection(self, collection_name: str):
+        """Delete a collection"""
+        try:
+            self.client.delete_collection(collection_name)
+            return True
+        except:
+            return False
 
-# Global instance
-_vector_db = None
 
-def get_vector_db() -> VectorDatabase:
-    """Get singleton instance"""
-    global _vector_db
-    if _vector_db is None:
-        persist_dir = os.getenv("CHROMA_DB_PATH", "./chroma_db")
-        _vector_db = VectorDatabase(persist_dir)
-    return _vector_db
+# Singleton instance
+_vector_db_instance = None
+
+def get_vector_db(persist_directory: str = "./chroma_db") -> VectorDB:
+    """Get singleton VectorDB instance"""
+    global _vector_db_instance
+    
+    if _vector_db_instance is None:
+        _vector_db_instance = VectorDB(persist_directory)
+    
+    return _vector_db_instance
+
+
+# Example usage
+if __name__ == "__main__":
+    # Initialize
+    vdb = get_vector_db()
+    
+    # Create collection
+    collection_name = "test_collection"
+    
+    # Add documents
+    documents = [
+        "Chính sách nghỉ phép: 12 ngày/năm",
+        "Thời gian làm việc: 8:30 - 17:30",
+        "Lương: Trả vào ngày 10 hàng tháng"
+    ]
+    
+    metadatas = [
+        {"question": "Nghỉ phép bao nhiêu ngày?", "answer": "12 ngày/năm", "source": "hr_policy.txt"},
+        {"question": "Giờ làm việc?", "answer": "8:30 - 17:30", "source": "hr_policy.txt"},
+        {"question": "Khi nào trả lương?", "answer": "Ngày 10 hàng tháng", "source": "hr_policy.txt"}
+    ]
+    
+    count = vdb.add_documents(collection_name, documents, metadatas)
+    print(f"Added {count} documents")
+    
+    # Query
+    results = vdb.query(collection_name, "Nghỉ phép mấy ngày?", n_results=1)
+    
+    if results['documents'][0]:
+        print(f"\nQuery: Nghỉ phép mấy ngày?")
+        print(f"Answer: {results['metadatas'][0][0]['answer']}")
+        print(f"Distance: {results['distances'][0][0]}")

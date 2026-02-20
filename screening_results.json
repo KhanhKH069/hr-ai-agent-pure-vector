@@ -50,5 +50,210 @@
       }
     },
     "min_score": 60
+  },
+  {
+    "name": "Nguyễn Văn Lâm Hùng",
+    "email": "lamhung13102005@gmail.com",
+    "phone": "0379181310",
+    "position": "AI Intern",
+    "timestamp": "2026-02-17 22:52:14",
+    "cv_filename": "CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "cv_path": "cv_uploads\\20260217_225214_Nguyễn Văn Lâm Hùng_CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "total_score": 42.5,
+    "max_score": 100,
+    "percentage": 42.5,
+    "recommendation": "REJECT",
+    "status": "❌ Not Recommended",
+    "action": "Send rejection email",
+    "breakdown": {
+      "required_skills": {
+        "found": [
+          "python",
+          "pandas",
+          "matplotlib",
+          "numpy",
+          "git"
+        ],
+        "percentage": 38.46153846153847,
+        "points": 11.53846153846154
+      },
+      "preferred_skills": {
+        "found": [
+          "pytorch",
+          "scikit-learn",
+          "fastapi"
+        ],
+        "percentage": 30.0,
+        "points": 6.0
+      },
+      "experience": {
+        "years_found": 0,
+        "years_required": 0,
+        "points": 20
+      },
+      "education": {
+        "relevant": false,
+        "points": 5
+      },
+      "certifications": {
+        "found": [],
+        "points": 0
+      }
+    },
+    "min_score": 60
+  },
+  {
+    "name": "Nguyễn Văn Lâm Hùng",
+    "email": "lamhung13102005@gmail.com",
+    "phone": "0379181310",
+    "position": "AI Intern",
+    "timestamp": "2026-02-20 13:19:24",
+    "cv_filename": "CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "cv_path": "cv_uploads\\20260220_131924_Nguyễn Văn Lâm Hùng_CV Nguyễn Văn Lâm Hùng AI intern.pdf",
+    "total_score": 42.5,
+    "max_score": 100,
+    "percentage": 42.5,
+    "recommendation": "REJECT",
+    "status": "❌ Not Recommended",
+    "action": "Send rejection email",
+    "breakdown": {
+      "required_skills": {
+        "found": [
+          "python",
+          "pandas",
+          "matplotlib",
+          "numpy",
+          "git"
+        ],
+        "percentage": 38.46153846153847,
+        "points": 11.53846153846154
+      },
+      "preferred_skills": {
+        "found": [
+          "pytorch",
+          "scikit-learn",
+          "fastapi"
+        ],
+        "percentage": 30.0,
+        "points": 6.0
+      },
+      "experience": {
+        "years_found": 0,
+        "years_required": 0,
+        "points": 20
+      },
+      "education": {
+        "relevant": false,
+        "points": 5
+      },
+      "certifications": {
+        "found": [],
+        "points": 0
+      }
+    },
+    "min_score": 60
+  },
+  {
+    "name": "Đoàn Đức Thắng",
+    "email": "ducthang8558@gmail.com",
+    "phone": "0978 851 058",
+    "position": "AI Intern",
+    "timestamp": "2026-02-17 22:13:31",
+    "cv_filename": "Doan Duc Thang_AI Engineer.pdf",
+    "cv_path": "cv_uploads\\20260217_221331_Đoàn Đức Thắng_Doan Duc Thang_AI Engineer.pdf",
+    "total_score": 39.9,
+    "max_score": 100,
+    "percentage": 39.9,
+    "recommendation": "REJECT",
+    "status": "❌ Not Recommended",
+    "action": "Send rejection email",
+    "breakdown": {
+      "required_skills": {
+        "found": [
+          "python",
+          "c++",
+          "git"
+        ],
+        "percentage": 23.076923076923077,
+        "points": 6.9230769230769225
+      },
+      "preferred_skills": {
+        "found": [
+          "pytorch",
+          "tensorflow",
+          "scikit-learn",
+          "fastapi"
+        ],
+        "percentage": 40.0,
+        "points": 8.0
+      },
+      "experience": {
+        "years_found": 0,
+        "years_required": 0,
+        "points": 20
+      },
+      "education": {
+        "relevant": false,
+        "points": 5
+      },
+      "certifications": {
+        "found": [],
+        "points": 0
+      }
+    },
+    "min_score": 60
+  },
+  {
+    "name": "Vũ Nam Khánh",
+    "email": "nslgkhanh.vu@gmail.com",
+    "phone": "0383356237",
+    "position": "AI Engineer",
+    "timestamp": "2026-02-20 13:15:06",
+    "cv_filename": "Portfolio of Vu Nam Khanh (2).pdf",
+    "cv_path": "cv_uploads\\20260220_131506_Vũ Nam Khánh_Portfolio of Vu Nam Khanh (2).pdf",
+    "total_score": 33.6,
+    "max_score": 100,
+    "percentage": 33.6,
+    "recommendation": "REJECT",
+    "status": "❌ Not Recommended",
+    "action": "Send rejection email",
+    "breakdown": {
+      "required_skills": {
+        "found": [
+          "python",
+          "c++",
+          "numpy",
+          "pandas",
+          "pytorch",
+          "tensorflow",
+          "scikit-learn",
+          "machine learning",
+          "deep learning"
+        ],
+        "percentage": 40.909090909090914,
+        "points": 12.272727272727273
+      },
+      "preferred_skills": {
+        "found": [
+          "computer vision"
+        ],
+        "percentage": 6.666666666666667,
+        "points": 1.3333333333333333
+      },
+      "experience": {
+        "years_found": 0,
+        "years_required": 2,
+        "points": 5
+      },
+      "education": {
+        "relevant": true,
+        "points": 15
+      },
+      "certifications": {
+        "found": [],
+        "points": 0
+      }
+    },
+    "min_score": 65
   }
 ]
