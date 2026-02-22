@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-HR AI Agent - Main Application (Pure Vector Database)
-NO SQL! ChromaDB only. Chat uses vector retrieval (no LLM/Ollama).
+HR AI Agent
 """
 
 import sys
