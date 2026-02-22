@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HR AI Agent - Main Application (Pure Vector Database)
-NO SQL! Only ChromaDB + Ollama
+NO SQL! ChromaDB only. Chat uses vector retrieval (no LLM/Ollama).
 """
 
 import sys
@@ -17,37 +17,13 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def check_ollama():
-    """Check if Ollama is running"""
-    try:
-        import requests
-        response = requests.get("http://localhost:11434/api/tags", timeout=3)
-        return response.status_code == 200
-    except:
-        return False
-
 print("="*80)
 print("🏢 HR AI AGENT - PURE VECTOR DATABASE")
 print("="*80)
 print()
 print("✅ ChromaDB Only (NO SQL!)")
-print("🔒 100% Local (Ollama)")
+print("🔒 100% Local (vector retrieval, no Ollama)")
 print("💰 $0 Cost")
-print()
-
-# Check Ollama
-print("🔍 Checking Ollama...")
-if not check_ollama():
-    print("❌ Ollama server not running!")
-    print()
-    print("Please start Ollama:")
-    print("  1. Open terminal")
-    print("  2. Run: ollama serve")
-    print("  3. Run this script again")
-    print()
-    sys.exit(1)
-
-print("✅ Ollama connected")
 print()
 
 # Test Vector DB
